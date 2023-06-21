@@ -37,33 +37,17 @@ public class PlayerSprite extends Sprite
 
     public void setDefaultValues()
     {
-        worldX = GameScreen.TILE_SIZE * 2;
-        worldY = GameScreen.TILE_SIZE * 2;
+        worldX = GameScreen.TILE_SIZE * 1;
+        worldY = GameScreen.TILE_SIZE * 18;
+//        worldX = GameScreen.TILE_SIZE * 17;
+//        worldY = GameScreen.TILE_SIZE * 6;
         speed = 4;
         spriteFiles = Util.loadFileToHashMap();
         isPepsi = false;
         finished = false;
         direction = "down";
-
-//        //map33
-//        worldX = GameScreen.TILE_SIZE * 2;
-//        worldY = GameScreen.TILE_SIZE * 17;
     }
 
-    public void setDefaultValues(String level)
-    {
-        speed = 4;
-        spriteFiles = Util.loadFileToHashMap();
-        isPepsi = false;
-        finished = false;
-        direction = "down";
-        if(level.equals("viko"))
-        {
-            //map33
-            worldX = GameScreen.TILE_SIZE * 2;
-            worldY = GameScreen.TILE_SIZE * 17;
-        }
-    }
     public void update()
     {
         if((inputHandler.isUp || inputHandler.isDown || inputHandler.isLeft || inputHandler.isRight) && !isPepsi)
@@ -96,6 +80,7 @@ public class PlayerSprite extends Sprite
             }
             else
             {
+                System.out.println("collided mopve");
                 deathSequence();
             }
 
@@ -151,6 +136,7 @@ public class PlayerSprite extends Sprite
 
 
             int objIndex = gameScreen.checkCollision.checkObjectIdle(this,true);
+            System.out.println(objIndex);
             if(objIndex != 999)
             {
                 System.out.println("collided");
@@ -182,16 +168,13 @@ public class PlayerSprite extends Sprite
         }
         if(finished)
         {
-            gameScreen.tileSetter.loadMap(gameScreen.nextLevel);
-            gameScreen.objectSetter.setObject(gameScreen.nextLevel);
-            gameScreen.playerSprite.respawnPlayer(gameScreen.nextLevel);
-            gameScreen.playerSprite.finished = false;
+            System.out.println("finish");
         }
     }
 
     private void movePlayer()
     {
-        if(!collisionOn)
+        if(collisionOn == false)
         {
             switch (direction)
             {
@@ -260,25 +243,11 @@ public class PlayerSprite extends Sprite
 
     private void respawnPlayer()
     {
-//        worldX = GameScreen.TILE_SIZE * 2;
-//        worldY = GameScreen.TILE_SIZE * 2;
+        worldX = GameScreen.TILE_SIZE * 1;
+        worldY = GameScreen.TILE_SIZE * 18;
         isPepsi = false;
-
-        //map33
-        worldX = GameScreen.TILE_SIZE * 2;
-        worldY = GameScreen.TILE_SIZE * 17;
     }
 
-    private void respawnPlayer(String level)
-    {
-        isPepsi = false;
-
-        if(level.equals("viko"))
-        {
-            worldX = GameScreen.TILE_SIZE * 2;
-            worldY = GameScreen.TILE_SIZE * 17;
-        }
-    }
 
     public void draw(Graphics2D g2d)
     {

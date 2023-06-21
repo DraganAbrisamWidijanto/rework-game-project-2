@@ -29,6 +29,7 @@ public class CheckCollision
                         sprite.solidArea.y -= sprite.speed;
                         if(sprite.solidArea.intersects(gameScreen.obj[i].solidArea))
                         {
+                            System.out.println(sprite.direction);
                             if(gameScreen.obj[i].collision)
                             {
                                 sprite.collisionOn = true;
@@ -195,15 +196,9 @@ public class CheckCollision
                 if(gameScreen.tileSetter.tiles[tileNum1].collision || gameScreen.tileSetter.tiles[tileNum2].collision)
                 {
                     sprite.collisionOn = true;
-                    if(tileNum1 == 18 || tileNum2 == 18)
-                    {
-                        gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "ulana";
-                    }
                     if(tileNum1 == 3 || tileNum2 == 3)
                     {
                         gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "viko";
                     }
                 }
                 break;
@@ -214,15 +209,9 @@ public class CheckCollision
                 if(gameScreen.tileSetter.tiles[tileNum1].collision || gameScreen.tileSetter.tiles[tileNum2].collision)
                 {
                     sprite.collisionOn = true;
-                    if(tileNum1 == 18 || tileNum2 == 18)
-                    {
-                        gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "ulana";
-                    }
                     if(tileNum1 == 3 || tileNum2 == 3)
                     {
                         gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "viko";
                     }
                 }
                 break;
@@ -233,15 +222,9 @@ public class CheckCollision
                 if(gameScreen.tileSetter.tiles[tileNum1].collision || gameScreen.tileSetter.tiles[tileNum2].collision)
                 {
                     sprite.collisionOn = true;
-                    if(tileNum1 == 18 || tileNum2 == 18)
-                    {
-                        gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "ulana";
-                    }
                     if(tileNum1 == 3 || tileNum2 == 3)
                     {
                         gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "viko";
                     }
                 }
                 break;
@@ -252,15 +235,9 @@ public class CheckCollision
                 if(gameScreen.tileSetter.tiles[tileNum1].collision || gameScreen.tileSetter.tiles[tileNum2].collision)
                 {
                     sprite.collisionOn = true;
-                    if(tileNum1 == 18 || tileNum2 == 18)
-                    {
-                        gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "ulana";
-                    }
                     if(tileNum1 == 3 || tileNum2 == 3)
                     {
                         gameScreen.playerSprite.finished = true;
-                        gameScreen.nextLevel = "viko";
                     }
                 }
                 break;
